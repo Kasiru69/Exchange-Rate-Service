@@ -1,0 +1,37 @@
+# Git
+.git
+.gitignore
+
+# Documentation
+README.md
+*.md
+
+# Tests
+tests/
+*.test
+
+# Binaries
+*.exe
+*.dll
+*.so
+*.dylib
+main
+
+# IDE
+.vscode/
+.idea/
+
+# Logs
+*.log
+
+# Environment files (will be handled separately)
+.env
+
+# Docker files
+Dockerfile
+docker-compose.yml
+.dockerignore
+
+# Temporary files
+tmp/
+temp/

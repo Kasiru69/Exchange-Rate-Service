@@ -1,0 +1,33 @@
+version: '3.8'
+
+services:
+  exchange-rate-service:
+    build: .
+    container_name: exchange-rate-service
+    ports:
+      - "8080:8080"
+    environment:
+      - PORT=8080
+      - LOG_LEVEL=info
+      - CACHE_EXPIRATION=3600
+      - UPDATE_INTERVAL=14400
+      - MAX_HISTORY_DAYS=90
+      # Add your API key here or use .env file
+      - EXCHANGE_API_KEY=73fda159574e487335c01f410f990937
+      - EXCHANGE_BASE_URL=https://api.exchangerate.host
+    # Uncomment below to use .env file
+    # env_file:
+    #   - .env
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost:8080/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    networks:
+      - exchange-network
+
+networks:
+  exchange-network:
+    driver: bridge
