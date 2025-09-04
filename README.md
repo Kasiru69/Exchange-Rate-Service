@@ -61,6 +61,8 @@ The server listens on port **8080** by default. Adjustable via configuration or 
 
 ---
 
+Prefer not to clone and run locally? Use the deployed API at https://exchange-rate-service-b95n.onrender.com — just replace http://localhost:8080 in the curl examples with this base URL.
+
 ## 📡 API Endpoints
 
 > All example `curl` requests assume the server runs on `http://localhost:8080`.
